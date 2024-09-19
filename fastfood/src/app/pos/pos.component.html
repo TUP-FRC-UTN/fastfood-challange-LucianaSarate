@@ -1,7 +1,12 @@
-<h4> Point of Sell</h4>
-<h5>ingrese su pedido</h5>
-<label for=""> Nombre : </label> <input type="text"> 
-<br>
-<label for=""> Pedidos : </label> <input type="text"> 
-<br>
-<button class="btn btn-primary">Ordenar</button>
+<div class="card">
+    <div class="card-body">
+        <h5>ingrese su pedido</h5>
+        <form>
+            <label for="" class="mb2"> Nombre : </label> <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre"  > 
+            <br>
+            <label for=""> Pedidos : </label> <input type="text" class="form-control" [(ngModel)]="descripcion" name="descripcion" > 
+            <br>
+            <button class="btn btn-primary" (click)="enviar()">Ordenar</button>
+        </form>
+    </div>
+  </div>

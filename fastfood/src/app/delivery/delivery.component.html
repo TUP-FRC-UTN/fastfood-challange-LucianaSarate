@@ -1,7 +1,13 @@
-<h3>Pedidos listos para entrega:</h3>
+<div class="card">
+    <div class="card-body">
+        <h3>Pedidos listos para entrega:</h3>
 
-<ul>
-    <li>Elemento 1 <button class="btn btn-primary">boton</button></li>
-    <li>Elemento 2  <button class="btn btn-primary">boton</button></li>
-    <li>Elemento 3  <button class="btn btn-primary">boton</button></li>
-</ul>
+        <ul>
+            @for (item of pedidoingresado; track item; let index = $index) {
+            <li>{{item.number}}{{item.name}} <button class="btn btn-primary" (click)=" terminar(index, item.name)">Entregar</button></li>
+           
+            }
+            
+        </ul>
+    </div>
+  </div>

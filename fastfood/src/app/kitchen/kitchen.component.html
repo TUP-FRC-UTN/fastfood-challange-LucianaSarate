@@ -1,38 +1,40 @@
-<h5>Pendiente de cocina</h5>
+<div class="card">
+  <div class="card-body">
+    <h5>Pendiente de cocina</h5>
 
-<table class="table">
-    <thead>
+    <table class="table">
+      <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Descripcion</th>
+          <th scope="col">Descripción</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>muzza doble</td>
-          <td><button class="btn btn-primary">Cocinar</button></td>
+        <tr *ngFor="let p of pedidoingresado, let i = index">
+          <th scope="row">{{p.number}}</th>
+          <td>{{p.description}}</td>
+          <td><button class="btn btn-primary" (click)="COcinar(p, i)" [disabled]="botonDeshabilitado">Cocinar</button></td>
         </tr>
       </tbody>
-</table>
+    </table>
 
-<h6>Pedidos en Cocción</h6>
-<table class="table">
-    <thead>
+    <h6>Pedidos en Cocción</h6>
+    <table class="table">
+      <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Descripcion</th>
+          <th scope="col">Descripción</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Juan carlo</td>
-          <td>muzza doble</td>
-          <td><button class="btn btn-primary">Cocinar</button></td>
+        <tr *ngIf="Cocion">
+          <th scope="row">{{cocinando.number}}</th>
+          <td>{{cocinando.description}}</td>
+          <td><button class="btn btn-primary" (click)="terminar()">Terminado</button></td>
         </tr>
       </tbody>
-</table>
+    </table>
+  </div>
+</div>

@@ -8,23 +8,26 @@
               <th scope="col">#</th>
               <th scope="col">Nombre</th>
               <th scope="col">Descripcion</th>
-              <th scope="col">Numero</th>
-              <th scope="col">Estado</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>pedro</td>
-              <td>muzza doble</td>
-              <td>300</td>
-              <td>Estaso</td>
+            <tr *ngFor="let p of pedidonotocar">
+              <th scope="row">{{p.number}}</th>
+              <td>{{p.name}}</td>
+              <td>{{p.description}}</td>
             </tr>
           </tbody>
     </table>
 </div>
+<div class="row">
+<div class="col-4"><app-pos (pedido)="onPedidoRecibido($event)"></app-pos></div>
+<div class="col-4">
+  <app-kitchen [pedidoingresado]="pedido" (pedido)="onPedidoCocinado($event)"></app-kitchen>
+</div>
+<div class="col-4"><app-delivery [pedidoingresado]="finalizar"></app-delivery></div>
 
-<app-delivery></app-delivery>
-<app-pos></app-pos>
-<app-kitchen></app-kitchen>
+</div>
+
+
+
 </div>
